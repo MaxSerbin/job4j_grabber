@@ -31,7 +31,8 @@ public class AlertRabbit {
             scheduler.scheduleJob(job, trigger);
             Thread.sleep(10000);
             scheduler.shutdown();
-        } catch (SchedulerException | ClassNotFoundException | SQLException | InterruptedException se) {
+        } catch (SchedulerException | ClassNotFoundException
+                | SQLException | InterruptedException se) {
             se.printStackTrace();
         }
     }
@@ -47,7 +48,8 @@ public class AlertRabbit {
         return prop;
     }
 
-    private static Connection getConnection(Properties prop) throws ClassNotFoundException, SQLException {
+    private static Connection getConnection(Properties prop) throws ClassNotFoundException,
+            SQLException {
         Class.forName(prop.getProperty("driver-class-name"));
         return DriverManager.getConnection(
                 prop.getProperty("url"),
@@ -64,7 +66,8 @@ public class AlertRabbit {
         @Override
         public void execute(JobExecutionContext context) throws JobExecutionException {
             System.out.println("Rabbit runs here ...");
-            Connection connection = (Connection) context.getJobDetail().getJobDataMap().get("connection");
+            Connection connection = (Connection) context.getJobDetail()
+                    .getJobDataMap().get("connection");
             add(connection);
         }
 
