@@ -9,7 +9,8 @@ import java.io.IOException;
 
 public class HabrCareerParse {
     private static final String SOURCE_LINK = "https://career.habr.com";
-    private static final String PAGE_LINK = String.format("%s/vacancies/java_developer", SOURCE_LINK);
+    private static final String PAGE_LINK = String.format("%s/vacancies/java_developer",
+            SOURCE_LINK);
 
     public static void main(String[] args) throws IOException {
         Connection connection = Jsoup.connect(PAGE_LINK);
@@ -19,7 +20,8 @@ public class HabrCareerParse {
             Element titleElement = row.select(".vacancy-card__title").first();
             Element linkElement = titleElement.child(0);
             String vacancyName = titleElement.text();
-            String link = String.format("%s%s", SOURCE_LINK, linkElement.attr("href"));
+            String link = String.format("%s%s", SOURCE_LINK,
+                    linkElement.attr("href"));
             Element dateElement = row.select(".vacancy-card__date").first();
             Element dateChild = dateElement.child(0);
             String date = String.format("%s", dateChild.attr("datetime"));
