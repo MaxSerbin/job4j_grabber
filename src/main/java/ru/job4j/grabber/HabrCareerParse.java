@@ -7,11 +7,26 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import java.io.IOException;
 
+
 public class HabrCareerParse {
     private static final String SOURCE_LINK = "https://career.habr.com";
     private static final String PAGE_LINK = String.format("%s/vacancies/java_developer",
             SOURCE_LINK);
     private static final int PAGE = 5;
+
+    private static String retrieveDescription(String link) {
+        Connection connection = Jsoup.connect(link);
+        String desc = null;
+        try {
+            Document document = connection.get();
+            Element descElement = document.select(".job_show_description").first();
+            Element descChild = descElement.child(0);
+            desc = descChild.text();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return desc;
+    }
 
     public static void main(String[] args) throws IOException {
       for (int i = 1; i <= PAGE; i++) {
@@ -27,7 +42,8 @@ public class HabrCareerParse {
               Element dateElement = row.select(".vacancy-card__date").first();
               Element dateChild = dateElement.child(0);
               String date = String.format("%s", dateChild.attr("datetime"));
-              System.out.printf("%s %s %s%n", vacancyName, link, date);
+              String rtd = retrieveDescription(link);
+              System.out.printf("%s %s %s %s%n", vacancyName, link, rtd, date);
           });
       }
     }
