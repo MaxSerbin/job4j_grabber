@@ -18,7 +18,7 @@ public class HabrCareerParse {
         String desc = null;
         try {
             Document document = connection.get();
-            Element descElement = document.select(".job_show_description").first();
+            Element descElement = document.select(".style-ugc").first();
             Element descChild = descElement.child(0);
             desc = descChild.text();
         } catch (IOException e) {
