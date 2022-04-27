@@ -91,6 +91,7 @@ public class Post {
                 + ", link='" + link + '\''
                 + ", description='" + description + '\''
                 + ", created=" + created
-                + '}';
+                + '}'
+                + "\n";
     }
 }
