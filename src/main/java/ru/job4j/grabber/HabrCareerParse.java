@@ -58,8 +58,7 @@ public class HabrCareerParse implements Parse {
         try {
             Document document = connection.get();
             Element descElement = document.select(".style-ugc").first();
-            Element descChild = descElement.child(0);
-            desc = descChild.text();
+            desc = descElement.text();
         } catch (IOException e) {
             e.printStackTrace();
         }
