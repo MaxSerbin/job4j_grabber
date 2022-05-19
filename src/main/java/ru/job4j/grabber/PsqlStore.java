@@ -38,7 +38,7 @@ public class PsqlStore implements Store, AutoCloseable {
             ps.setTimestamp(4, Timestamp.valueOf(post.getCreated()));
             ps.execute();
             try (ResultSet rs = ps.getGeneratedKeys()) {
-                if(rs.next()) {
+                if (rs.next()) {
                     post.setId(rs.getInt(1));
                 }
             }
