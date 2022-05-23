@@ -54,7 +54,8 @@ public class PsqlStore implements Store, AutoCloseable {
         try (PreparedStatement ps = cnn.prepareStatement(
                 "select * from post")) {
             try (ResultSet rs = ps.executeQuery()) {
-                while ((post = create(rs)) != null) {
+                while (rs.next()) {
+                    post = create(rs);
                     rsl.add(post);
                 }
             }
@@ -71,7 +72,9 @@ public class PsqlStore implements Store, AutoCloseable {
                 "select * from post where id = ?")) {
             ps.setInt(1, id);
             try (ResultSet rs = ps.executeQuery()) {
-                post = create(rs);
+                if (rs.next()) {
+                    post = create(rs);
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -86,21 +89,12 @@ public class PsqlStore implements Store, AutoCloseable {
         }
     }
 
-    private Post create(ResultSet rs) {
-        Post post = null;
-        try {
-            if (rs.next()) {
-                post = new Post(
-                        rs.getInt(1),
+    private Post create(ResultSet rs) throws SQLException {
+        return new Post(rs.getInt(1),
                         rs.getString(2),
                         rs.getString(3),
                         rs.getString(4),
                         rs.getTimestamp(5).toLocalDateTime());
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return post;
     }
 
     public static void main(String[] args) throws Exception {
