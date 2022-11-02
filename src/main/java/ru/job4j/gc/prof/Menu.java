@@ -44,23 +44,23 @@ public class Menu {
                 store.insert(size);
                 System.out.println(ARRAY_INFO + size);
             } else if (MERGE_SORT == userChoice) {
-                System.out.printf("%s%s%s%n", merge.getClass().getSimpleName()
-                        , BEGIN, LocalTime.now());
+                System.out.printf("%s%s%s%n", merge.getClass().getSimpleName(),
+                        BEGIN, LocalTime.now());
                 merge.sort(store);
-                System.out.printf("%s%s%s%n", merge.getClass().getSimpleName()
-                        , END, LocalTime.now());
+                System.out.printf("%s%s%s%n", merge.getClass().getSimpleName(),
+                        END, LocalTime.now());
             } else if (BUBBLE_SORT == userChoice) {
-                System.out.printf("%s%s%s%n", bubble.getClass().getSimpleName()
-                        , BEGIN, LocalTime.now());
+                System.out.printf("%s%s%s%n", bubble.getClass().getSimpleName(),
+                        BEGIN, LocalTime.now());
                 bubble.sort(store);
-                System.out.printf("%s%s%s%n", bubble.getClass().getSimpleName()
-                        , END, LocalTime.now());
+                System.out.printf("%s%s%s%n", bubble.getClass().getSimpleName(),
+                        END, LocalTime.now());
             } else if (INSERT_SORT == userChoice) {
-                System.out.printf("%s%s%s%n", insert.getClass().getSimpleName()
-                        , BEGIN, LocalTime.now());
+                System.out.printf("%s%s%s%n", insert.getClass().getSimpleName(),
+                        BEGIN, LocalTime.now());
                 insert.sort(store);
-                System.out.printf("%s%s%s%n", insert.getClass().getSimpleName()
-                        , END, LocalTime.now());
+                System.out.printf("%s%s%s%n", insert.getClass().getSimpleName(),
+                        END, LocalTime.now());
             } else {
                 run = false;
                 System.out.println("Конец работы");
