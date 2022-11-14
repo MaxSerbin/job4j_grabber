@@ -11,7 +11,7 @@ public class CommentGenerator implements Generate {
 
     public static final String SEPARATOR = System.lineSeparator();
     private List<Comment> comments = new ArrayList<>();
-    private final int count = 50;
+    public static final int COUNT = 50;
     private List<String> phrases;
     private UserGenerator userGenerator;
     private Random random;
@@ -37,7 +37,7 @@ public class CommentGenerator implements Generate {
     @Override
     public void generate() {
         comments.clear();
-        for (int i = 0; i < count; i++) {
+        for (int i = 0; i < COUNT; i++) {
             StringBuilder comment = new StringBuilder()
                     .append(phrases.get(random.nextInt(phrases.size())))
                     .append(SEPARATOR)
