@@ -9,7 +9,7 @@ public class MaxMin {
     }
 
     public <T> T min(List<T> value, Comparator<T> comparator) {
-        return getValue(value,comparator);
+        return getValue(value, comparator);
     }
 
     public <T> T getValue(List<T> value, Comparator<T> comparator) {

@@ -22,14 +22,14 @@ class MaxMinTest {
     @Test
     void whenMax() {
         MaxMin maxmin = new MaxMin();
-        int rsl = maxmin.max(values,comp);
+        int rsl = maxmin.max(values, comp);
         assertThat(rsl).isEqualTo(3);
     }
 
     @Test
     void whenMin() {
         MaxMin maxmin = new MaxMin();
-        int rsl = maxmin.min(values,comp);
+        int rsl = maxmin.min(values, comp);
         assertThat(rsl).isEqualTo(1);
     }
 }
