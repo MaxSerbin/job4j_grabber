@@ -52,11 +52,8 @@ class Cinema3DTest {
         Account account = new AccountCinema();
         Cinema cinema = new Cinema3D();
         Calendar date = Calendar.getInstance();
-        date.set(2023,15,47);
+        date.set(2023, 15, 47);
         assertThatThrownBy(() -> cinema.buy(account, -1, 1, date)).
                 isInstanceOf(DateTimeException.class);
-
     }
-
-
 }
