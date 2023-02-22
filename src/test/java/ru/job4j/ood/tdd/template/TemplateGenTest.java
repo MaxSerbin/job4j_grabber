@@ -72,6 +72,4 @@ class TemplateGenTest {
         assertThatThrownBy(() -> templateGen.produce(template, keys))
                 .isInstanceOf(IllegalArgumentException.class);
     }
-
-
 }
