@@ -16,7 +16,6 @@ public class AccDeptReport implements Report {
     private final Currency source;
     private final Currency target;
 
-
     public AccDeptReport(Store store, DateTimeParser<Calendar> dateTimeParser,
                          CurrencyConverter curConvrt,
                          Currency source, Currency target) {
@@ -37,7 +36,7 @@ public class AccDeptReport implements Report {
                     .append(dateTimeParser.parse(employee.getHired())).append(" ")
                     .append(dateTimeParser.parse(employee.getFired())).append(" ")
                     .append(curConvrt.convert(source,
-                            employee.getSalary(),target))
+                            employee.getSalary(), target))
                     .append(System.lineSeparator());
         }
         return text.toString();
