@@ -24,8 +24,32 @@ class ITDeptReportTest {
         store.add(emp1);
         store.add(emp2);
         store.add(emp3);
-        CSVReader reader = new CSVReader();
-        Report engine = new ITDeptReport(store, parser, "itreport.csv");
-        assertThat(engine.generate(em -> true)).isEqualTo(reader.readCSV("itreport.csv"));
+        String del = ";";
+        Report engine = new ITDeptReport(store, parser, "itreport.csv", del);
+        StringBuilder expected = new StringBuilder()
+                .append("Name; Hired; Fired; Salary;")
+                .append(System.lineSeparator())
+                .append(emp1.getName()).append(del)
+                .append(parser.parse(emp1
+                        .getHired())).append(del)
+                .append(parser.parse(emp1
+                        .getFired())).append(del)
+                .append(emp1.getSalary())
+                .append(System.lineSeparator())
+                .append(emp2.getName()).append(del)
+                .append(parser.parse(emp2
+                        .getHired())).append(del)
+                .append(parser.parse(emp2
+                        .getFired())).append(del)
+                .append(emp2.getSalary())
+                .append(System.lineSeparator())
+                .append(emp3.getName()).append(del)
+                .append(parser.parse(emp3
+                        .getHired())).append(del)
+                .append(parser.parse(emp3
+                        .getFired())).append(del)
+                .append(emp3.getSalary())
+                .append(System.lineSeparator());
+        assertThat(engine.generate(em -> true)).isEqualTo(expected.toString());
     }
 }
