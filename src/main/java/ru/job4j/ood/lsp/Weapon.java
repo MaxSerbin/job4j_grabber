@@ -6,9 +6,9 @@ package ru.job4j.ood.lsp;
  * предусловия.
  */
 public class Weapon {
-    protected int ammo;
+    private static int ammo;
 
-    public Weapon (int ammo) {
+    public Weapon(int ammo) {
         this.ammo = ammo;
     }
 
@@ -19,6 +19,13 @@ public class Weapon {
             System.out.println("BOOM!!!");
         }
 
+    public int getAmmo() {
+        return ammo;
+    }
+
+    public void setAmmo(int ammo) {
+        this.ammo = ammo;
+    }
 
     private static class MachineGun extends Weapon {
 

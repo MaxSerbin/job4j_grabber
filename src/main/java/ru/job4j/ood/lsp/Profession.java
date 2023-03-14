@@ -6,30 +6,43 @@ package ru.job4j.ood.lsp;
  * базового класса.
  */
 public class Profession {
-    boolean isIT;
+    private boolean isIT;
 
     public Profession(boolean isIT) {
         this.isIT = isIT;
     }
+
+    public boolean getIsIT() {
+        return isIT;
+    }
 }
 
 class EmployeeIT {
-    protected Profession profession;
+    private Profession profession;
 
     public EmployeeIT(Profession profession) {
         this.profession = profession;
     }
 
     protected void check(Profession profession) {
-        if (!profession.isIT) {
+        if (!profession.getIsIT()) {
             throw new IllegalArgumentException("Achtung!");
         }
-        System.out.println("OK");
+        System.out.println("Done");
     }
 
-    public void getProf(Profession profession) {
+    public Profession getProf(Profession profession) {
         check(profession);
-        System.out.println(profession);
+        System.out.println("OK");
+        return profession;
+    }
+
+    public Profession getProfession() {
+        return profession;
+    }
+
+    public void setProfession(Profession profession) {
+        this.profession = profession;
     }
 }
 
@@ -40,8 +53,19 @@ class EmployeeITAnotherDept extends EmployeeIT {
     }
 
     @Override
-    public void getProf(Profession profession) {
+    public Profession getProf(Profession profession) {
         System.out.println("OK");
+        return profession;
+    }
+
+    @Override
+    public Profession getProfession() {
+        return super.getProfession();
+    }
+
+    @Override
+    public void setProfession(Profession profession) {
+        super.setProfession(profession);
     }
 }
 

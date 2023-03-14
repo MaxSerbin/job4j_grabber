@@ -5,10 +5,18 @@ package ru.job4j.ood.lsp;
  * в подклассе ослаблены постусловия.
  */
 public class Multitool {
-    public static int functions;
+    private static int functions;
 
     public Multitool(int functions) {
         this.functions = functions;
+    }
+
+    public static int getFunctions() {
+        return functions;
+    }
+
+    public static void setFunctions(int functions) {
+        Multitool.functions = functions;
     }
 
     public int countFunc() {
