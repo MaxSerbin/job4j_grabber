@@ -61,8 +61,5 @@ public class Food {
         long pastShelfLifeDays = inventDate.getTime() - createDate.getTime();
         long shelfLifeDays = expiryDate.getTime() - createDate.getTime();
         return Math.round((float) pastShelfLifeDays / shelfLifeDays * 100);
-      //  long remainingShelfLife = expiryDate.getTime() - inventDate.getTime();
-      //  long shelfLifeDays = expiryDate.getTime() - createDate.getTime();
-      //  return Math.round((float) remainingShelfLife/shelfLifeDays * 100);
     }
 }
