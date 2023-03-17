@@ -1,12 +1,12 @@
-package ru.job4j.ood.lsp.foodStore.structure;
+package ru.job4j.ood.lsp.foodstore.structure;
 
 import java.util.Date;
 
-public class Trash extends AbstractStore {
+public class Warehouse extends AbstractStore {
 
     @Override
     public boolean foodDateConditions(Food food, Date inventDate) {
         int shelfLife = food.getExpDateInPercent(inventDate);
-        return shelfLife >= 100;
+        return shelfLife < 25;
     }
 }

@@ -1,4 +1,4 @@
-package ru.job4j.ood.lsp.foodStore.structure;
+package ru.job4j.ood.lsp.foodstore.structure;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -10,7 +10,7 @@ abstract class AbstractStore implements Store {
     public abstract boolean foodDateConditions(Food food, Date inventDate);
 
     public boolean addFood(Food food, Date inventDate) {
-        if (!foodDateConditions(food,inventDate)) {
+        if (!foodDateConditions(food, inventDate)) {
             return false;
         }
         foodList.add(food);

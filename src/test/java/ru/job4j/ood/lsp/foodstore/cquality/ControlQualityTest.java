@@ -1,7 +1,7 @@
-package ru.job4j.ood.lsp.foodStore.cQuality;
+package ru.job4j.ood.lsp.foodstore.cquality;
 
 import org.junit.jupiter.api.Test;
-import ru.job4j.ood.lsp.foodStore.structure.*;
+import ru.job4j.ood.lsp.foodstore.structure.*;
 import java.util.*;
 import static org.assertj.core.api.Assertions.*;
 

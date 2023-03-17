@@ -1,4 +1,4 @@
-package ru.job4j.ood.lsp.foodStore.structure;
+package ru.job4j.ood.lsp.foodstore.structure;
 
 import java.util.Date;
 

@@ -1,7 +1,7 @@
-package ru.job4j.ood.lsp.foodStore.cQuality;
+package ru.job4j.ood.lsp.foodstore.cquality;
 
-import ru.job4j.ood.lsp.foodStore.structure.Food;
-import ru.job4j.ood.lsp.foodStore.structure.Store;
+import ru.job4j.ood.lsp.foodstore.structure.Food;
+import ru.job4j.ood.lsp.foodstore.structure.Store;
 
 import java.util.Date;
 import java.util.List;

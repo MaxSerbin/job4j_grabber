@@ -1,4 +1,4 @@
-package ru.job4j.ood.lsp.foodStore.structure;
+package ru.job4j.ood.lsp.foodstore.structure;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,7 +13,6 @@ class ShopTest {
     private Food food;
     private Date inventDate;
 
-
     @BeforeEach
     void init() {
         food = new Food("Meat",
@@ -23,16 +22,19 @@ class ShopTest {
                 10);
         store = new Shop();
     }
+
     @Test
     void whenConditionsIsTrue() {
         inventDate = new GregorianCalendar(2023, Calendar.MARCH, 12).getTime();
         assertThat(store.foodDateConditions(food, inventDate)).isEqualTo(true);
     }
+
     @Test
     void whenConditionsIsFalse() {
         inventDate = new GregorianCalendar(2023, Calendar.MARCH, 17).getTime();
         assertThat(store.foodDateConditions(food, inventDate)).isEqualTo(false);
     }
+
     @Test
     void whenNotChangePrice() {
         inventDate = new GregorianCalendar(2023, Calendar.MARCH, 12).getTime();
@@ -40,6 +42,7 @@ class ShopTest {
         assertThat(store.getFood()).isEqualTo(List.of(food));
         assertThat(food.getPrice()).isEqualTo(500);
     }
+
     @Test
     void whenChangePrice() {
         inventDate = new GregorianCalendar(2023, Calendar.MARCH, 15).getTime();
