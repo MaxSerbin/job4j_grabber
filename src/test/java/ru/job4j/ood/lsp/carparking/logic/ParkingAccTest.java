@@ -7,6 +7,7 @@ import ru.job4j.ood.lsp.carparking.structure.PassCar;
 import ru.job4j.ood.lsp.carparking.structure.Truck;
 
 import static org.assertj.core.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class ParkingAccTest {
 
@@ -35,11 +36,19 @@ class ParkingAccTest {
     }
 
     @Test
+    void whenPassCarsNotParking() {
+        Parking pa = new ParkingAcc(0, 4);
+        Car pass1 = new PassCar();
+        Car truck1 = new Truck(2);
+        assertThat(pa.addCar(pass1)).isFalse();
+        assertThat(pa.addCar(truck1)).isTrue();
+    }
+
+    @Test
     void whenTruckNotParking() {
         Parking pa = new ParkingAcc(1, 0);
         Car truck1 = new Truck(2);
         assertThat(pa.addCar(truck1)).isFalse();
-
     }
 
     @Test
@@ -54,6 +63,11 @@ class ParkingAccTest {
         pa.addCar(truck1);
         pa.addCar(truck2);
         assertThat(pa.getCars()).contains(pass1, pass2, truck1, truck2);
+    }
 
+    @Test
+    public void whenNotATruck() throws IllegalArgumentException {
+         assertThrows(IllegalArgumentException.class,
+                () -> new Truck(1));
     }
 }

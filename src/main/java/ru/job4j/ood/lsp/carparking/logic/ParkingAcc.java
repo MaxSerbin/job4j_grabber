@@ -21,7 +21,7 @@ public class ParkingAcc implements Parking {
     @Override
     public boolean carSizeConditions(Car car) {
         int size = car.getSize();
-        return passCount >= size || truckCount >= size;
+        return passCount >= size || (size > 1 && truckCount >= size);
     }
 
     @Override
