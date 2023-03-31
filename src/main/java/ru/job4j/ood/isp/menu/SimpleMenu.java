@@ -35,8 +35,9 @@ public class SimpleMenu implements Menu {
 
     @Override
     public Iterator<MenuItemInfo> iterator() {
+        DFSIterator it = new DFSIterator();
+
         return new Iterator<>() {
-            DFSIterator it = new DFSIterator();
 
             @Override
             public boolean hasNext() {
@@ -97,10 +98,24 @@ public class SimpleMenu implements Menu {
     }
 
     private class DFSIterator implements Iterator<ItemInfo> {
+        private Deque<MenuItem> stack = new LinkedList<>();
+        private Deque<String> numbers = new LinkedList<>();
 
-        Deque<MenuItem> stack = new LinkedList<>();
+        public Deque<MenuItem> getStack() {
+            return stack;
+        }
 
-        Deque<String> numbers = new LinkedList<>();
+        public void setStack(Deque<MenuItem> stack) {
+            this.stack = stack;
+        }
+
+        public Deque<String> getNumbers() {
+            return numbers;
+        }
+
+        public void setNumbers(Deque<String> numbers) {
+            this.numbers = numbers;
+        }
 
         DFSIterator() {
             int number = 1;
@@ -134,9 +149,24 @@ public class SimpleMenu implements Menu {
     }
 
     private class ItemInfo {
+        private MenuItem menuItem;
+        private String number;
 
-        MenuItem menuItem;
-        String number;
+        public MenuItem getMenuItem() {
+            return menuItem;
+        }
+
+        public void setMenuItem(MenuItem menuItem) {
+            this.menuItem = menuItem;
+        }
+
+        public String getNumber() {
+            return number;
+        }
+
+        public void setNumber(String number) {
+            this.number = number;
+        }
 
         public ItemInfo(MenuItem menuItem, String number) {
             this.menuItem = menuItem;

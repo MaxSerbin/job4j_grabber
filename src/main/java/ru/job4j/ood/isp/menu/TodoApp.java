@@ -3,8 +3,6 @@ package ru.job4j.ood.isp.menu;
 import java.util.Scanner;
 
 public class TodoApp {
-    private final Menu menu = new SimpleMenu();
-    private final MenuPrinter printer = new DashPrinter();
     public static final ActionDelegate DEFAULT_ACTION = () -> System.out.println("Some action");
     public static final int ADD_TO_ROOT = 1;
     public static final int ADD_TO_PARENT = 2;
@@ -19,6 +17,8 @@ public class TodoApp {
             3 Вызвать действие.
             4 Показать меню.
             """;
+    private final Menu menu = new SimpleMenu();
+    private final MenuPrinter printer = new DashPrinter();
 
     public void showMenu() {
         System.out.println(MENU);
@@ -50,8 +50,9 @@ public class TodoApp {
             } else if (userChoice == EXIT) {
                 System.out.println("EXIT");
                 run = false;
-            } else
+            } else {
                 System.out.println("Введите корректный номер пункта меню ! ");
+            }
         }
     }
 }
