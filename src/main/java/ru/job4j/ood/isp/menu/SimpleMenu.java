@@ -101,6 +101,14 @@ public class SimpleMenu implements Menu {
         private Deque<MenuItem> stack = new LinkedList<>();
         private Deque<String> numbers = new LinkedList<>();
 
+        DFSIterator() {
+            int number = 1;
+            for (MenuItem item : rootElements) {
+                stack.addLast(item);
+                numbers.addLast(String.valueOf(number++).concat("."));
+            }
+        }
+
         public Deque<MenuItem> getStack() {
             return stack;
         }
@@ -115,14 +123,6 @@ public class SimpleMenu implements Menu {
 
         public void setNumbers(Deque<String> numbers) {
             this.numbers = numbers;
-        }
-
-        DFSIterator() {
-            int number = 1;
-            for (MenuItem item : rootElements) {
-                stack.addLast(item);
-                numbers.addLast(String.valueOf(number++).concat("."));
-            }
         }
 
         @Override
@@ -152,6 +152,11 @@ public class SimpleMenu implements Menu {
         private MenuItem menuItem;
         private String number;
 
+        public ItemInfo(MenuItem menuItem, String number) {
+            this.menuItem = menuItem;
+            this.number = number;
+        }
+
         public MenuItem getMenuItem() {
             return menuItem;
         }
@@ -165,11 +170,6 @@ public class SimpleMenu implements Menu {
         }
 
         public void setNumber(String number) {
-            this.number = number;
-        }
-
-        public ItemInfo(MenuItem menuItem, String number) {
-            this.menuItem = menuItem;
             this.number = number;
         }
     }
