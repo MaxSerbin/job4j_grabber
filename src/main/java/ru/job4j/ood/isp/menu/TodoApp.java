@@ -55,4 +55,9 @@ public class TodoApp {
             }
         }
     }
+
+    public static void main(String[] args) {
+        TodoApp todoApp = new TodoApp();
+        todoApp.init();
+    }
 }
