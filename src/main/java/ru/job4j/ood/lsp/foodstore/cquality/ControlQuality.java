@@ -2,7 +2,6 @@ package ru.job4j.ood.lsp.foodstore.cquality;
 
 import ru.job4j.ood.lsp.foodstore.structure.Food;
 import ru.job4j.ood.lsp.foodstore.structure.Store;
-
 import java.util.Date;
 import java.util.List;
 
@@ -25,5 +24,12 @@ public class ControlQuality {
                 }
             }
         }
+    }
+
+    public void resort() {
+        for (Store store : storeList) {
+            store.clearFood();
+        }
+        toDistribute();
     }
 }

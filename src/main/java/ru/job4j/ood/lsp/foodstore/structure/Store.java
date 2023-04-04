@@ -9,5 +9,7 @@ public interface Store {
 
      boolean addFood(Food food, Date inventDate);
 
+     void clearFood();
+
      List<Food> getFood();
 }
